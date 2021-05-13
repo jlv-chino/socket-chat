@@ -23,12 +23,12 @@ socket.on('disconnect', function() {
     console.log('Perdimos conexión con el servidor')
 })
 
-socket.emit('enviarMensaje', {
+/*socket.emit('crearMensaje', {
     usuario: 'Fernando',
     mensaje: 'Hola Mundo'
 }, function(resp) {
     console.log('respuesta server: ', resp)
-})
+})*/
 
 socket.on('crearMensaje', function(mensaje) {
 
@@ -39,4 +39,8 @@ socket.on('crearMensaje', function(mensaje) {
 socket.on('listaPersonas', function(personas) {
 
     console.log(personas)
+})
+
+socket.on('mensajePrivado', function(mensaje){
+    console.log('Mensaje privado', mensaje)
 })
