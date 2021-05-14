@@ -1,13 +1,14 @@
 var socket = io()
 var params = new URLSearchParams(window.location.search)
 
-if(!params.has('nombre')){
+if(!params.has('nombre') || !params.has('sala')){
     window.location = 'index.html'
-    throw new Error('Se necesita un nombre')
+    throw new Error('Se necesita un nombre y una sala')
 }
 
 var usuario = {
-    nombre: params.get('nombre')
+    nombre: params.get('nombre'),
+    sala: params.get('sala')
 }
 
 socket.on('connect', function() {
