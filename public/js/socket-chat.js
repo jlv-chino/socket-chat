@@ -12,8 +12,6 @@ var usuario = {
     sala: params.get('sala')
 }
 
-
-
 socket.on('connect', function() {
     console.log('Conectado al servidor')
 
@@ -30,7 +28,8 @@ socket.on('disconnect', function() {
 })
 
 socket.on('crearMensaje', function(mensaje) {
-    renderizarMensajes(mensaje)
+    renderizarMensajes(mensaje, false)
+    scrollBottom()
 })
 
 socket.on('listaPersona', function(personas) {
